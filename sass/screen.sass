@@ -3,70 +3,107 @@
 @import "compass/reset"
 
 
-// root em size: 16px
-$container: 60em
-$gtr: .75em
-$line: 1.5em
+$container: 800px
+$gtr: 10px
+$line: 22px
 
-$hed-text: "nimbus-sans-extended", sans-serif
-$body-text: "nimbus-sans-extended", sans-serif
+$column: 500px + $gtr * 2
+
+$body-text: "abril-text", serif
+$sans: "Helvetica Neue", sans-serif
 
 $text-color: #222
+$green: #46b64f
 
 *
   position: relative
   @include box-sizing(border-box)
 
 html
-  font-size: 100%
+  font-size: 15px
   font-family: $body-text
-  line-height: 1.5
+  line-height: $line
   color: $text-color
-  padding: 0 10px
-  @include transition(font-size 1s)
-  &.article-zoom
-    font-size: 200%
-    .site-nav
-      bottom: 0
+
+body
+  margin: 0 auto
 
 a
-  text-decoration: underline
-  color: $text-color
-  &:hover
-    color: $text-color + #333
+  text-decoration: none
+  color: inherit
 
-h1, h2, h3, h4, h5, h6
-  font-family: $hed-text
+em
+  font-style: italic
+
+h1, h2, h3
   font-weight: bold
   line-height: 1
-  text-transform: uppercase
 
 h1
-  font-size: 4em
+  font-size: $line * 2
 
 h2
-  font-size: 3em
+  font-size: $line
 
-.site-nav
-  z-index: 10
-  position: fixed
-  bottom: 0
+p
+  text-align: justify
+  padding-bottom: $line / 2
+  a
+    text-decoration: underline
+
+img
+  max-width: 100%
+
+.container
+  @include clearfix
+  margin: 0 auto
   width: 100%
-  bottom: -50px
-  text-align: center
-  font-size: 24px
-  @include transition(bottom 1s)
-  .container
-    padding: 10px 20px
-    display: inline-block
-    background-color: rgba(255,255,255,.8)
+  @media (min-width: $column * 2)
+    width: $column * 2
+  @media (min-width: $column * 3)
+    width: $column * 3
+  @media (min-width: $column * 4)
+    width: $column * 4
+
+.site-header
+  padding: $line $gtr
+  @extend .container
 
 article
-  width: 40em
-  height: 50em
-  padding: 2em
-  font-size: .5em
   float: left
+  padding: $line $gtr
+  width: 100%
+  margin: 0
+  @media (min-width: $column * 2)
+    width: $column
 
-  img
-    width: 100%
+  .agency
+    font-style: italic
+
+  .tech li
+    display: inline-block
+    font-family: sans-serif
+    border: 1px solid $green
+    background-color: #cec
+    padding: 0 4px
+    border-radius: 4px
+
+.site-footer
+  color: white
+  background-color: $green
+  padding: $line 0
+  width: 100%
+
+  .container
+    padding: 0 $gtr
+
+.contact
+  margin: 0 auto
+  a
+    text-decoration: underline
+
+  dt
+    float: left
+    padding-right: $gtr
+
+
